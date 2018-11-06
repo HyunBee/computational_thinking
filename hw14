@@ -9,10 +9,12 @@ script= script.replace('<', ' ')
 script= script.replace(',',' ')
 script= script.replace('.',' ')
 script= script.replace("'",' ')
-script= script.replace("<",' ')
+script= script.replace(">",' ')
 script= script.replace('/',' ')
 script= script.replace('"',' ')
 script= script.replace("=",' ')
+script=script.replace(' p ', ' ')
+print(script)
 s=script.split()
 
 d={}
@@ -25,9 +27,8 @@ for k in s:
 L=[]
 for i in sorted(d, key=d.__getitem__,reverse=True):
     L.append(i)
+LIST=[]
+for q in range(20):
+    LIST.append(L[q])
 
-
-print('1번째로 가장 많이 사용된 단어: ', L[0])
-print('2번째로 가장 많이 사용된 단어: ', L[1])
-
-print('3번째로 가장 많이 사용된 단어: ', L[2])
+print('가장 많이 사용된 단어: ', LIST)
