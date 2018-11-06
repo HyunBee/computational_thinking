@@ -5,14 +5,14 @@ data = str(r.text)
 begin = data.find('Madam President, Mr. Secretary-General, world leaders, ambassadors, and distinguished delegates')
 end = data.rfind('Thank you very much. Thank you. (Applause.)')
 script = data[begin:end]
-script.replace('<', ' ')
-script.replace(',',' ')
-script.replace('.',' ')
-script.replace("'",' ')
-script.replace("<",' ')
-script.replace('/',' ')
-script.replace('"',' ')
-script.replace("=",' ')
+script= script.replace('<', ' ')
+script= script.replace(',',' ')
+script= script.replace('.',' ')
+script= script.replace("'",' ')
+script= script.replace("<",' ')
+script= script.replace('/',' ')
+script= script.replace('"',' ')
+script= script.replace("=",' ')
 s=script.split()
 
 d={}
@@ -26,7 +26,8 @@ L=[]
 for i in sorted(d, key=d.__getitem__,reverse=True):
     L.append(i)
 
-a= L[0]
-b= L[1]
-c=L[2]
-print(a, b, c)
+
+print('1번째로 가장 많이 사용된 단어: ', L[0])
+print('2번째로 가장 많이 사용된 단어: ', L[1])
+
+print('3번째로 가장 많이 사용된 단어: ', L[2])
