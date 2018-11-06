@@ -1,0 +1,32 @@
+import requests
+r = requests.get('https://www.vox.com/2018/9/25/17901082/trump-un-2018-speech-full-text')
+r.encoding = 'utf8'
+data = str(r.text)
+begin = data.find('Madam President, Mr. Secretary-General, world leaders, ambassadors, and distinguished delegates')
+end = data.rfind('Thank you very much. Thank you. (Applause.)')
+script = data[begin:end]
+script.replace('<', ' ')
+script.replace(',',' ')
+script.replace('.',' ')
+script.replace("'",' ')
+script.replace("<",' ')
+script.replace('/',' ')
+script.replace('"',' ')
+script.replace("=",' ')
+s=script.split()
+
+d={}
+for k in s:
+    if k in d:
+        d[k] += 1
+    else:
+        d[k] = 1
+
+L=[]
+for i in sorted(d, key=d.__getitem__,reverse=True):
+    L.append(i)
+
+a= L[0]
+b= L[1]
+c=L[2]
+print(a, b, c)
